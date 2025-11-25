@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Optional: customize directly here */
+@theme {
+  --color-brand-500: #0ea5e9;
+}
