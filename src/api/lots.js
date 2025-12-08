@@ -1,6 +1,8 @@
+const BASE_URL = "http://localhost:8000";
+
 export async function fetchDealLots(dealId) {
   try {
-    const response = await fetch(`http://localhost:8000/deals/read/${dealId}/lot/all`);
+    const response = await fetch(`${BASE_URL}/deals/read/${dealId}/lot/all`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -16,7 +18,7 @@ export async function fetchDealLots(dealId) {
 
 export async function fetchLotDetails(dealId, lotId) {
   try {
-    const response = await fetch(`http://localhost:8000/deals/read/${dealId}/lot/${lotId}`);
+    const response = await fetch(`${BASE_URL}/deals/read/${dealId}/lot/${lotId}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -33,7 +35,7 @@ export async function fetchLotDetails(dealId, lotId) {
 export async function updateLot(dealId, lotId, updateData) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/update/${dealId}/lots/${lotId}/update`,
+      `${BASE_URL}/deals/update/${dealId}/lots/${lotId}/update`,
       {
         method: "PATCH",
         headers: {
@@ -56,7 +58,7 @@ export async function updateLot(dealId, lotId, updateData) {
 export async function batchUpdateLots(dealId, batchUpdateData) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/update/${dealId}/lots/batch-update`,
+      `${BASE_URL}/deals/update/${dealId}/lots/batch-update`,
       {
         method: "PATCH",
         headers: {
@@ -85,7 +87,7 @@ export async function batchDeliveryUpdate(dealId, deliveryUpdates) {
     
     console.log("Payload being sent:", JSON.stringify(payload)); // Verify in console
     
-    const response = await fetch(`http://localhost:8000/deals/update/lots/update-delivery-details`, {
+    const response = await fetch(`${BASE_URL}/deals/update/lots/update-delivery-details`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -120,7 +122,7 @@ export async function batchCostEstimation(brokerId, dealId, lotIds, costData) {
       }
     };
 
-    const response = await fetch(`http://localhost:8000/deals/${dealId}/lots/cost-estimation`, {
+    const response = await fetch(`${BASE_URL}/deals/${dealId}/lots/cost-estimation`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

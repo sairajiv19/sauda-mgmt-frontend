@@ -1,7 +1,9 @@
+const BASE_URL = "http://localhost:8000";
+
 export async function createShipment(dealId, lotId, shipmentData) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/${dealId}/lots/${lotId}/shipment/create`,
+      `${BASE_URL}/deals/${dealId}/lots/${lotId}/shipment/create`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -19,7 +21,7 @@ export async function createShipment(dealId, lotId, shipmentData) {
 export async function batchCreateShipments(dealId, batchData) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/${dealId}/lots/shipment/create-batch`,
+      `${BASE_URL}/deals/${dealId}/lots/shipment/create-batch`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,7 +39,7 @@ export async function batchCreateShipments(dealId, batchData) {
 export async function getShipment(dealId, lotId, shipmentId) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/${dealId}/lots/${lotId}/shipment/${shipmentId}/read`,
+      `${BASE_URL}/deals/${dealId}/lots/${lotId}/shipment/${shipmentId}/read`,
       { method: "POST", headers: { "Content-Type": "application/json" } }
     );
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -51,7 +53,7 @@ export async function getShipment(dealId, lotId, shipmentId) {
 export async function getLotShipments(dealId, lotId) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/${dealId}/lots/${lotId}/shipment/read-lot`,
+      `${BASE_URL}/deals/${dealId}/lots/${lotId}/shipment/read-lot`,
       { method: "POST", headers: { "Content-Type": "application/json" } }
     );
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -65,7 +67,7 @@ export async function getLotShipments(dealId, lotId) {
 export async function getDealShipments(dealId) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/${dealId}/lots/shipment/read-deal`,
+      `${BASE_URL}/deals/${dealId}/lots/shipment/read-deal`,
       { method: "GET", headers: { "Content-Type": "application/json" } }
     );
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -79,7 +81,7 @@ export async function getDealShipments(dealId) {
 export async function updateShipment(shipmentId, updateData) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/lots/shipment/${shipmentId}/update`,
+      `${BASE_URL}/deals/lots/shipment/${shipmentId}/update`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -97,7 +99,7 @@ export async function updateShipment(shipmentId, updateData) {
 export async function batchUpdateShipments(batchData) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/lots/shipment/update/batch-update`,
+      `${BASE_URL}/deals/lots/shipment/update/batch-update`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -115,7 +117,7 @@ export async function batchUpdateShipments(batchData) {
 export async function deleteShipment(dealId, lotId, shipmentId) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/${dealId}/lots/${lotId}/shipment/${shipmentId}/delete`,
+      `${BASE_URL}/deals/${dealId}/lots/${lotId}/shipment/${shipmentId}/delete`,
       { method: "DELETE", headers: { "Content-Type": "application/json" } }
     );
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);

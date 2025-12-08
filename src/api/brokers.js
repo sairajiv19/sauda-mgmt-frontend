@@ -1,6 +1,8 @@
+const BASE_URL = "http://localhost:8000";
+
 export async function fetchAllBrokers() {
   try {
-    const response = await fetch("http://localhost:8000/brokers/read/all");
+    const response = await fetch(`${BASE_URL}/brokers/read/all`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -15,7 +17,7 @@ export async function fetchAllBrokers() {
 
 export async function createBroker(brokerData) {
   try {
-    const response = await fetch("http://localhost:8000/brokers/create/", {
+    const response = await fetch("${BASE_URL}/brokers/create/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +37,7 @@ export async function createBroker(brokerData) {
 
 export async function fetchBrokerDeals(brokerId) {
   try {
-    const response = await fetch(`http://localhost:8000/brokers/read/${brokerId}/show-deals`);
+    const response = await fetch(`${BASE_URL}/brokers/read/${brokerId}/show-deals`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -49,7 +51,7 @@ export async function fetchBrokerDeals(brokerId) {
 
 export async function fetchBrokerLedger(brokerId) {
   try {
-    const response = await fetch(`http://localhost:8000/brokers/read/${brokerId}/ledger`);
+    const response = await fetch(`${BASE_URL}/brokers/read/${brokerId}/ledger`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -62,7 +64,7 @@ export async function fetchBrokerLedger(brokerId) {
 }
 
 export async function createBrokerLedgerEntry(brokerId, entryData) {
-  const response = await fetch(`http://localhost:8000/brokers/${brokerId}/ledger-create`, {
+  const response = await fetch(`${BASE_URL}/brokers/${brokerId}/ledger-create`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
