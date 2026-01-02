@@ -17,7 +17,7 @@ export async function fetchAllBrokers() {
 
 export async function createBroker(brokerData) {
   try {
-    const response = await fetch("${BASE_URL}/brokers/create/", {
+    const response = await fetch(`${BASE_URL}/brokers/create/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

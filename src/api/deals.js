@@ -16,15 +16,15 @@ export async function fetchAllDeals() {
 }
 
 export async function updateDealStatus(publicId, status) {
-  try{
-  const response = await fetch(`${BASE_URL}/deals/update/${publicId}/status`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ status }),
-  });
+  try {
+    const response = await fetch(`${BASE_URL}/deals/update/${publicId}/status`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status }),
+    });
 
-  if (!response.ok) throw new Error("Failed to update status");
-  return response.json();
+    if (!response.ok) throw new Error("Failed to update status");
+    return response.json();
   } catch (err) {
     alert(`Error fetching deals: ${err.message}`); // optional
     console.error("❌ Error fetching deals:", err);
@@ -35,7 +35,7 @@ export async function updateDealStatus(publicId, status) {
 
 export async function createSauda(saudaData) {
   try {
-    const response = await fetch("http://localhost:8000/deals/create/", {
+    const response = await fetch(`${BASE_URL}/deals/create/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export async function createSauda(saudaData) {
 export async function deleteDeal(dealId) {
   try {
     const response = await fetch(
-      `http://localhost:8000/deals/delete/${dealId}`,
+      `${BASE_URL}/deals/delete/${dealId}`,
       {
         method: "DELETE",
         headers: {

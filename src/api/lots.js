@@ -84,9 +84,9 @@ export async function batchDeliveryUpdate(dealId, deliveryUpdates) {
     const payload = {
       data: deliveryUpdates
     };
-    
+
     console.log("Payload being sent:", JSON.stringify(payload)); // Verify in console
-    
+
     const response = await fetch(`${BASE_URL}/deals/update/lots/update-delivery-details`, {
       method: "PATCH",
       headers: {
@@ -115,10 +115,10 @@ export async function batchCostEstimation(brokerId, dealId, lotIds, costData) {
       public_lot_ids: lotIds,
       broker_id: brokerId,
       update: {
-      qi_expense: parseFloat(costData.qi_expense) || 0,
-      lot_dalali_expense: parseFloat(costData.lot_dalali_expense) || 0,
-      other_expenses: parseFloat(costData.other_expenses) || 0,
-      brokerage: parseFloat(costData.brokerage) || 3
+        qi_expense: parseFloat(costData.qi_expense) || 0,
+        lot_dalali_expense: parseFloat(costData.lot_dalali_expense) || 0,
+        other_expenses: parseFloat(costData.other_expenses) || 0,
+        brokerage: parseFloat(costData.brokerage) || 3
       }
     };
 
