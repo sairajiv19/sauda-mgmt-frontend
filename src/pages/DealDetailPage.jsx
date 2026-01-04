@@ -721,7 +721,7 @@ export default function DealDetailPage() {
           <button
             onClick={() => navigate("/")}
             className="px-4 py-2 rounded-lg text-sm font-medium transition hover:shadow-md"
-            style={{ backgroundColor: "#2563EB", color: "white" }}
+            style={{ backgroundColor: "#1d39a0ff", color: "white" }}
           >
             ← Back to Deals
           </button>
@@ -743,7 +743,7 @@ export default function DealDetailPage() {
                 onClick={() => setShowBatchEditModal(true)}
                 disabled={selectedLotIds.size === 0}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: selectedLotIds.size === 0 ? "#D1D5DB" : "#2563EB", color: "white" }}
+                style={{ backgroundColor: selectedLotIds.size === 0 ? "#D1D5DB" : "#1d39a0ff", color: "white" }}
               >
                 Batch Edit ({selectedLotIds.size})
               </button>
@@ -767,7 +767,7 @@ export default function DealDetailPage() {
                 onClick={() => setShowCostEstimationModal(true)}
                 disabled={selectedLotIds.size === 0}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: selectedLotIds.size === 0 ? "#D1D5DB" : "#F59E0B", color: "white" }}
+                style={{ backgroundColor: selectedLotIds.size === 0 ? "#D1D5DB" : "#5a78e5ff", color: "white" }}
               >
                 💰 Apply Cost Estimation ({selectedLotIds.size})
               </button>
@@ -777,24 +777,24 @@ export default function DealDetailPage() {
           {/* Normal Mode - All Action Buttons */}
           {!isBatchEditMode && !isCostEstimationMode && (
             <div className="flex gap-3">
-              <button
+              {/* <button
                 onClick={() => setShowDeliveryModal(true)}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition hover:shadow-md"
                 style={{ backgroundColor: "#10B981", color: "white" }}
               >
                 🚚 Delivery Complete
-              </button>
+              </button> */}
               <button
                 onClick={() => setIsCostEstimationMode(true)}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition hover:shadow-md"
-                style={{ backgroundColor: "#F59E0B", color: "white" }}
+                style={{ backgroundColor: "#112d93ff", color: "white" }}
               >
                 💰 Cost Estimation
               </button>
               <button
                 onClick={() => setIsBatchEditMode(true)}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition hover:shadow-md"
-                style={{ backgroundColor: "#2563EB", color: "white" }}
+                style={{ backgroundColor: "#112d93ff", color: "white" }}
               >
                 Batch Edit
               </button>
@@ -810,7 +810,7 @@ export default function DealDetailPage() {
         </div>
 
         {/* Deal Info Card */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-6" style={{ backgroundColor: "#F9FAFB", borderTop: "4px solid #2563EB" }}>
+        <div className="bg-white rounded-lg shadow-sm p-6 mb-6" style={{ backgroundColor: "#F9FAFB", borderTop: "4px solid #5a78e5ff" }}>
           <h1 className="text-3xl font-bold mb-6" style={{ color: "#111827" }}>{deal.name}</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
@@ -852,7 +852,7 @@ export default function DealDetailPage() {
         {/* Reports Banner - Metric Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           {/* Total Cost Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #2563EB" }}>
+          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
             <div className="flex items-center justify-between mb-2">
               <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Total Cost</span>
               <span style={{ fontSize: "24px" }}>💰</span>
@@ -869,7 +869,7 @@ export default function DealDetailPage() {
           </div>
 
           {/* Bora Progress Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #F59E0B" }}>
+          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
             <div className="flex items-center justify-between mb-2">
               <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Bora Progress</span>
               <span style={{ fontSize: "24px" }}>📦</span>
@@ -886,7 +886,7 @@ export default function DealDetailPage() {
           </div>
 
           {/* Flap Sticker Progress Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #8B5CF6" }}>
+          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
             <div className="flex items-center justify-between mb-2">
               <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Flap Sticker</span>
               <span style={{ fontSize: "24px" }}>🏷️</span>
@@ -903,7 +903,7 @@ export default function DealDetailPage() {
           </div>
 
           {/* Gate Pass Progress Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #10B981" }}>
+          <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
             <div className="flex items-center justify-between mb-2">
               <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Gate Pass</span>
               <span style={{ fontSize: "24px" }}>🚪</span>
@@ -921,7 +921,7 @@ export default function DealDetailPage() {
 
           {/* FRK Progress Card - Conditional */}
           {hasFRKLots() && (
-            <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #EF4444" }}>
+            <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
               <div className="flex items-center justify-between mb-2">
                 <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>FRK Progress</span>
                 <span style={{ fontSize: "24px" }}>🌾</span>
@@ -944,8 +944,8 @@ export default function DealDetailPage() {
             onClick={() => setActiveTab("lots")}
             className={`px-4 py-3 font-semibold transition ${activeTab === "lots" ? "border-b-2" : ""}`}
             style={{
-              color: activeTab === "lots" ? "#2563EB" : "#6B7280",
-              borderBottomColor: activeTab === "lots" ? "#2563EB" : "transparent",
+              color: activeTab === "lots" ? "#1d39a0ff" : "#6B7280",
+              borderBottomColor: activeTab === "lots" ? "#1d39a0ff" : "transparent",
             }}
           >
             Lots

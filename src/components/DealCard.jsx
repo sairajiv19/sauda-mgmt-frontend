@@ -55,7 +55,7 @@ export default function DealCard({ deal, onStatusUpdate }) {
       className="p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer" 
       style={{ backgroundColor: "#F9FAFB" }}
     >
-      <div className="bg-blue-600 text-white px-3 py-2.5 rounded-lg mb-4 flex justify-between items-center" style={{ backgroundColor: "#2563EB" }}>
+      <div className="bg-blue-600 text-white px-3 py-2.5 rounded-lg mb-4 flex justify-between items-center" style={{ backgroundColor: "#1d39a0ff" }}>
         <h2 className="text-base font-semibold truncate">
           {deal.name}
         </h2>

@@ -73,7 +73,7 @@ export default function AnalyticsCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
       {/* Bora Progress Card */}
-      <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #F59E0B" }}>
+      <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
         <div className="flex items-center justify-between mb-2">
           <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Bora Progress</span>
           <span style={{ fontSize: "24px" }}>📦</span>
@@ -90,7 +90,7 @@ export default function AnalyticsCards() {
       </div>
 
       {/* Flap Sticker Progress Card */}
-      <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #8B5CF6" }}>
+      <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
         <div className="flex items-center justify-between mb-2">
           <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Flap Sticker</span>
           <span style={{ fontSize: "24px" }}>🏷️</span>
@@ -107,7 +107,7 @@ export default function AnalyticsCards() {
       </div>
 
       {/* Gate Pass Progress Card */}
-      <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #10B981" }}>
+      <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
         <div className="flex items-center justify-between mb-2">
           <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>Gate Pass</span>
           <span style={{ fontSize: "24px" }}>🚪</span>
@@ -125,7 +125,7 @@ export default function AnalyticsCards() {
 
       {/* FRK Progress Card - Conditional */}
       {totals.hasFRK && (
-        <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #EF4444" }}>
+        <div className="bg-white rounded-lg shadow-sm p-6" style={{ borderTop: "4px solid #5a78e5ff" }}>
           <div className="flex items-center justify-between mb-2">
             <span style={{ color: "#6B7280", fontSize: "14px", fontWeight: "600" }}>FRK Progress</span>
             <span style={{ fontSize: "24px" }}>🌾</span>

@@ -153,6 +153,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import AddSaudaModal from "./AddSaudaModal";
 import AddBrokerModal from "./AddBrokerModal";
+import DeliveryCompleteModal from "./DeliveryCompleteModal";
 import Toast from "./Toast";
 
 export default function Navbar({ dealName, onSearch, brokers, refreshBrokers }) {
@@ -161,6 +162,7 @@ export default function Navbar({ dealName, onSearch, brokers, refreshBrokers }) 
   const [showSaudaModal, setShowSaudaModal] = useState(false);
   const [showBrokerModal, setShowBrokerModal] = useState(false);
   const [toast, setToast] = useState(null);
+  const [showDeliveryModal, setShowDeliveryModal] = useState(false);
 
   const showSearch = currentPage === "/" || currentPage === "/brokers";
   const showAddButton = currentPage === "/" || currentPage === "/brokers";
@@ -170,14 +172,29 @@ export default function Navbar({ dealName, onSearch, brokers, refreshBrokers }) 
     window.location.reload();
   };
 
+   const refreshLots = async () => {
+      try {
+        const lotsData = await fetchDealLots(dealId);
+        setLots(lotsData || []);
+      } catch (error) {
+        console.error("Failed to refresh lots:", error);
+      }
+    };
+
   const handleBrokerSuccess = (message, type = "success") => {
     setToast({ message, type });
     refreshBrokers && refreshBrokers();
   };
 
+    const handleDeliveryCompleteSuccess = () => {
+    setToast({ message: "Delivery data updated successfully!", type: "success" });
+    setShowDeliveryModal(false);
+    refreshLots();
+  };
+
   return (
     <>
-      <nav className="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg sticky top-0 z-50">
+      <nav className="bg-gradient-to-r from-blue-800 to-blue-900 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between gap-6">
             {/* Left: Home icon + Title */}
@@ -264,17 +281,25 @@ export default function Navbar({ dealName, onSearch, brokers, refreshBrokers }) 
                       setShowSaudaModal(true);
                     }
                   }}
-                  className="px-4 py-2 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition whitespace-nowrap"
+                className="relative px-1 py-2 text-sm text-blue-100 font-semibold rounded-lg hover:text-white"
                 >
                   + Add {currentPage === "/brokers" ? "Broker" : "Deal"}
                 </button>
               )}
-              {/* Deal Buddy button - white box with blue text */}
+              {/* Delivery Complete button*/}
+              <button
+                onClick={() => setShowDeliveryModal(true)}
+                className="relative px-1 py-2 text-sm text-blue-100 font-semibold rounded-lg hover:text-white"
+              >
+                Delivery Complete
+              </button>
+
+              {/* Deal Buddy button  */}
                   <a
                     href="http://localhost:9003"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-white text-blue-600 border border-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition whitespace-nowrap"
+                    className="relative px-1 py-2 text-sm text-blue-100 font-semibold rounded-lg hover:text-white"
                     title="Deal Buddy (AI Agent)"
                   >
                     Deal Buddy
@@ -305,6 +330,13 @@ export default function Navbar({ dealName, onSearch, brokers, refreshBrokers }) 
           onClose={() => setToast(null)}
         />
       )}
+      {showDeliveryModal && (
+        <DeliveryCompleteModal
+         // dealId={dealId}
+          onClose={() => setShowDeliveryModal(false)}
+          onSuccess={handleDeliveryCompleteSuccess}
+        />
+       )}
     </>
   );
 }

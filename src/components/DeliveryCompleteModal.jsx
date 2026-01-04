@@ -114,7 +114,7 @@ LOT003\t2025-11-12\tDurg Storage\t38.7\t75\t2.5`);
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            backgroundColor: "#10B981",
+            backgroundColor: "#1037b9ff",
           }}
         >
           <h2 style={{ fontSize: "24px", fontWeight: "700", color: "white", margin: 0 }}>
